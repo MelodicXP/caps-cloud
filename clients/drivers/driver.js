@@ -16,7 +16,7 @@ const processMessages = async () => {
     const sqsParams = {
       QueueUrl: QUEUE_URL,
       MaxNumberOfMessages: 1,
-      WaitTimeSeconds: 10,
+      WaitTimeSeconds: 5,
     };
 
     // Receive a message from the SQS queue
@@ -74,8 +74,15 @@ const processMessages = async () => {
   }
 };
 
-// Main execution
-processMessages();
+function startDriver () {
+  setInterval(() => {
+    processMessages();
+  }, 10000);
+}
+
+startDriver();
+
+// module.exports = startDriver;
 
 // { // ReceiveMessageResult
 //   Messages: [ // MessageList
