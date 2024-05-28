@@ -58,7 +58,7 @@ const processMessages = async () => {
     const sqsParams = {
       QueueUrl: VENDOR_URL,
       MaxNumberOfMessages: 1,
-      WaitTimeSeconds: 10,
+      WaitTimeSeconds: 5,
     };
 
     // Receive a message from the SQS queue
@@ -91,6 +91,18 @@ const processMessages = async () => {
   }
 };
 
-// Main execution
-publishMessage();
-processMessages();
+function startVendor () {
+  // Publish message every 5 seconds
+  setInterval(() => {
+    publishMessage();
+  }, 5000);
+
+  // Process messages every 2 seconds
+  setInterval(() => {
+    processMessages();
+  }, 10000);
+}
+
+startVendor();
+
+// module.exports = startVendor;
