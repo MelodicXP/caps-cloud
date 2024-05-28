@@ -58,4 +58,4 @@ Conducted via:
 * **SNS** - AWS GUI environment
 * **Terminal Outputs**
 
-### Link to Pull Request ---> [Pull Request](https://github.com/MelodicXP/serverless-api/pull/1)
+### Link to Pull Request ---> [Pull Request](https://github.com/MelodicXP/caps-cloud/pull/1)
